@@ -10,12 +10,12 @@ namespace bankCounter
 
             while (true)
             {
-                string userInput;
-                int choice, amount, accountNumber;
+                string accountNo,userInput;
+                uint choice, amount, accountNumber;
                 Console.Write("1. Add User\n2. Deposit Money\n3. With Drow Money\n4. Check Acount Balance\n5.Check Data of Each coustumer\n6.Exit\n");
                 Console.WriteLine("\nSelect Your Choice : ");
                 userInput = Console.ReadLine();
-                choice = Convert.ToInt32(userInput);
+                choice = Convert.ToUInt32(userInput);
                 Console.WriteLine(choice);
 
                 switch (choice)
@@ -24,22 +24,25 @@ namespace bankCounter
                         AddUser();
                         break;
                     case 2:
+                        Console.WriteLine("Enter Acount number : ");
+                        accountNo = Console.ReadLine();
+                        accountNumber = Convert.ToUInt32(accountNo);
                         Console.WriteLine("Enter Amount To Be Deposit : ");
                         userInput = Console.ReadLine();
-                        amount = Convert.ToInt32(userInput);
-                        Deposit(amount);
+                        amount = Convert.ToUInt32(userInput);
+                        Deposit(accountNumber, amount);
                         break;
                     case 3:
                         Console.WriteLine("Enter Amount To Be Withdrow : ");
                         userInput = Console.ReadLine();
-                        amount = Convert.ToInt32(userInput);
+                        amount = Convert.ToUInt32(userInput);
                         withdrow(amount);
                         break;
                     case 4:
                         Console.WriteLine("Enter Account Number To Search Coustermer Data: ");
                         userInput = Console.ReadLine();
-                        accountNumber = Convert.ToInt32(userInput);
-                        CheckCoustemerDats(accountNumber);
+                        accountNumber = Convert.ToUInt32(userInput);
+                        CheckCoustemerData(accountNumber);
                         break;
                     case 5:
                         Console.WriteLine("All Coustumer Data : ");
@@ -94,16 +97,19 @@ namespace bankCounter
             list.PrintCostumerData();
         }
 
-        private static void CheckCoustemerDats(int accountNumber)
+        private static void CheckCoustemerData(uint accountNumber)
         {
             LinkList<CostumerData> list = new LinkList<CostumerData>();
             list.SearchCostumerData(accountNumber);
 
         }
 
-        private static void Deposit(int amount)
+        private static void Deposit(uint accountNumber,uint amount)
         {
-           
+            LinkList<CostumerData> list = new LinkList<CostumerData>();
+            list.DepositAmount(accountNumber,amount);
+
+
         }
 
         private static void withdrow(int amount)

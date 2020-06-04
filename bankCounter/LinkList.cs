@@ -56,7 +56,7 @@ namespace bankCounter
             }
 
         }
-        public void SearchCostumerData(int accountNumber)
+        public void SearchCostumerData(uint accountNumber)
         {
             Node currNode = head;
             Console.WriteLine("CostumerData: ");
@@ -66,6 +66,29 @@ namespace bankCounter
             {
                 if (currNode.accountNumber == accountNumber)
                 {
+                    // Print the data at current node 
+                    Console.Write("Account Number : " + currNode.accountNumber + "\n" +
+                              "User Name      : " + currNode.name + "\n" +
+                              "Mobile Number  : " + currNode.mobileNumber + "\n" +
+                              "Account Balance: " + currNode.balance + "\n\n");
+                }
+
+                // Go to next node 
+                currNode = currNode.next;
+            }
+
+        }
+        public void DepositAmount(uint accountNumber, uint amount)
+        {
+            Node currNode = head;
+            Console.WriteLine("CostumerData: ");
+
+
+            while (currNode != null)
+            {
+                if (currNode.accountNumber == accountNumber)
+                {
+                    currNode.balance = currNode.balance + amount;
                     // Print the data at current node 
                     Console.Write("Account Number : " + currNode.accountNumber + "\n" +
                               "User Name      : " + currNode.name + "\n" +
