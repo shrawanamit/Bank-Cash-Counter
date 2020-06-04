@@ -4,45 +4,61 @@ namespace bankCounter
 {
     class Bank
     {
-        static void Main(string[] args)
+        static void Main(string[] arg)
         {
             Console.WriteLine("Welcome TO Bank...!!!");
-            string userInput;
-            int choice , amount, accountNumber;
-            Console.Write("1. Add User\n2. Deposit Money\n3. With Drow Money\n4. Check Acount Balance\n");
-            Console.WriteLine("\nSelect Your Choice : ");
-            userInput = Console.ReadLine();
-            choice = Convert.ToInt32(userInput);
-            Console.WriteLine(choice);
 
-            switch (choice)
+            while (true)
             {
-                case 1:
-                    AddUser();
+                string userInput;
+                int choice, amount, accountNumber;
+                Console.Write("1. Add User\n2. Deposit Money\n3. With Drow Money\n4. Check Acount Balance\n5.Check Data of Each coustumer\n6.Exit\n");
+                Console.WriteLine("\nSelect Your Choice : ");
+                userInput = Console.ReadLine();
+                choice = Convert.ToInt32(userInput);
+                Console.WriteLine(choice);
+
+                switch (choice)
+                {
+                    case 1:
+                        AddUser();
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter Amount To Be Deposit : ");
+                        userInput = Console.ReadLine();
+                        amount = Convert.ToInt32(userInput);
+                        Deposit(amount);
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter Amount To Be Withdrow : ");
+                        userInput = Console.ReadLine();
+                        amount = Convert.ToInt32(userInput);
+                        withdrow(amount);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter Account Number To Search Coustermer Data: ");
+                        userInput = Console.ReadLine();
+                        accountNumber = Convert.ToInt32(userInput);
+                        CheckCoustemerDats(accountNumber);
+                        break;
+                    case 5:
+                        Console.WriteLine("All Coustumer Data : ");
+                        PrintWholeCoustemerData();
+                        break;
+                    default:
+                        Console.WriteLine("Enter correct input : ");
+                        break;
+                }
+                if (choice == 6)
+                {
+                    Console.WriteLine("Thank You For Banking With Us..!!");
                     break;
-                case 2:
-                    Console.WriteLine("Enter Amount To Be Deposit : ");
-                    userInput = Console.ReadLine();
-                    amount = Convert.ToInt32(userInput);
-                    Deposit(amount);
-                    break;
-                case 3:
-                    Console.WriteLine("Enter Amount To Be Withdrow : ");
-                    userInput = Console.ReadLine();
-                    amount = Convert.ToInt32(userInput);
-                    withdrow(amount);
-                    break;
-                case 4:
-                    Console.WriteLine("Enter Account Number To Search : ");
-                    userInput = Console.ReadLine();
-                    accountNumber = Convert.ToInt32(userInput);
-                    CheckBalance(accountNumber);
-                    break;
+                }
             }
 
 
         }
-
+        
         private static void AddUser()
         {
             string accountNumber,userName, amountBalance, Mobumber, NumberOfcoustemer;
@@ -67,14 +83,22 @@ namespace bankCounter
                 amount = Convert.ToUInt32(amountBalance);
                 list.AddCostumerToQueue(amountNo, userName, mobileNumber, amount);
             }
-           
             list.PrintCostumerData();
 
+
+
+        }
+        private static void PrintWholeCoustemerData()
+        {
+            LinkList<CostumerData> list = new LinkList<CostumerData>();
+            list.PrintCostumerData();
         }
 
-        private static void CheckBalance(int accountNumber)
+        private static void CheckCoustemerDats(int accountNumber)
         {
-            
+            LinkList<CostumerData> list = new LinkList<CostumerData>();
+            list.SearchCostumerData(accountNumber);
+
         }
 
         private static void Deposit(int amount)
