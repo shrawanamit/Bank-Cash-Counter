@@ -1,0 +1,13 @@
+G:\vs\bankCounter\bankCounter\bin\Debug\netcoreapp3.1\bankCounter.exe
+G:\vs\bankCounter\bankCounter\bin\Debug\netcoreapp3.1\bankCounter.deps.json
+G:\vs\bankCounter\bankCounter\bin\Debug\netcoreapp3.1\bankCounter.runtimeconfig.json
+G:\vs\bankCounter\bankCounter\bin\Debug\netcoreapp3.1\bankCounter.runtimeconfig.dev.json
+G:\vs\bankCounter\bankCounter\bin\Debug\netcoreapp3.1\bankCounter.dll
+G:\vs\bankCounter\bankCounter\bin\Debug\netcoreapp3.1\bankCounter.pdb
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.csprojAssemblyReference.cache
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.AssemblyInfoInputs.cache
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.AssemblyInfo.cs
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.csproj.CoreCompileInputs.cache
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.dll
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.pdb
+G:\vs\bankCounter\bankCounter\obj\Debug\netcoreapp3.1\bankCounter.genruntimeconfig.cache
