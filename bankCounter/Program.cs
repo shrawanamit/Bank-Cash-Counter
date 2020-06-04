@@ -8,7 +8,7 @@ namespace bankCounter
         {
             Console.WriteLine("Welcome TO Bank...!!!");
             string userInput;
-            int choice = 0, amount, accountNumber;
+            int choice , amount, accountNumber;
             Console.Write("1. Add User\n2. Deposit Money\n3. With Drow Money\n4. Check Acount Balance\n");
             Console.WriteLine("\nSelect Your Choice : ");
             userInput = Console.ReadLine();
@@ -45,18 +45,29 @@ namespace bankCounter
 
         private static void AddUser()
         {
-            string userName, userAmount, number;
-            uint amount, mobileNumber;
-            Console.WriteLine("Enter User Name : ");
-            userName = Console.ReadLine();
-            Console.WriteLine("Enter Mobile No : ");
-            number = Console.ReadLine();
-            mobileNumber = Convert.ToUInt32(number);
-            Console.WriteLine("Enter starting Amount : ");
-            userAmount = Console.ReadLine();
-            amount = Convert.ToUInt32(userAmount);
-            LinkList<CostumerRegistration> list = new LinkList<CostumerRegistration>();
-            list.AddCostumerToQueue(new CostumerRegistration(userName, mobileNumber,amount));
+            string accountNumber,userName, amountBalance, Mobumber, NumberOfcoustemer;
+            uint amountNo, mobileNumber,amount,noOfcoustemer;
+            Console.WriteLine("Enter no of custumer u want to add : ");
+            NumberOfcoustemer = Console.ReadLine();
+            noOfcoustemer = Convert.ToUInt32(NumberOfcoustemer);
+            LinkList<CostumerData> list = new LinkList<CostumerData>();
+            for (int i=0;i< noOfcoustemer; i++)
+            {
+                Console.WriteLine("coustomer no 1 : " +i);
+                Console.WriteLine("Enter Account no : ");
+                accountNumber = Console.ReadLine();
+                amountNo = Convert.ToUInt32(accountNumber);
+                Console.WriteLine("Enter User Name : ");
+                userName = Console.ReadLine();
+                Console.WriteLine("Enter Mobile No : ");
+                Mobumber = Console.ReadLine();
+                mobileNumber = Convert.ToUInt32(Mobumber);
+                Console.WriteLine("Enter starting Amount : ");
+                amountBalance = Console.ReadLine();
+                amount = Convert.ToUInt32(amountBalance);
+                list.AddCostumerToQueue(amountNo, userName, mobileNumber, amount);
+            }
+           
             list.PrintCostumerData();
 
         }

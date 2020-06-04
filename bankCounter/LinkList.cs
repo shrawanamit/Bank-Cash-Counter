@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace bankCounter
 {
@@ -9,28 +7,25 @@ namespace bankCounter
         class Node
         {
             public Node next;
-            public string data;
-            public CostumerRegistration costumerRegistration;
-
-            public Node(CostumerRegistration costumerRegistration)
+            public uint accountNumber;
+            public string name;
+            public uint mobileNumber;
+            public uint balance;
+            public Node(uint accountNumber, string name, uint mobileNumber, uint balance)
             {
-                this.costumerRegistration = costumerRegistration;
-            }
-
-
-            public Node(string costumerRegistration)
-            {
-                data = costumerRegistration;
-                next = null;
+                this.accountNumber = accountNumber;
+                this.name = name;
+                this.mobileNumber = mobileNumber;
+                this.balance = balance;
             }
         }
 
         Node head, temp;
-        int count = 0;
-        public void AddCostumerToQueue(CostumerRegistration costumerRegistration)
+        
+        public void AddCostumerToQueue(uint accountNumber, string name, uint mobileNumber, uint balance)
         {
                 
-            Node node = new Node(costumerRegistration);
+            Node node = new Node( accountNumber,  name,  mobileNumber,  balance);
             if (head == null)
             {
                 head = temp = node;
@@ -38,21 +33,26 @@ namespace bankCounter
             else
             {
                  temp.next = node;
-                temp = node;
+                 temp = node;
             }
         }
+        
+        
+        
         public void PrintCostumerData()
         {
             Node currNode =head;
-
             Console.WriteLine("CostumerData: ");
 
             
             while (currNode != null)
             {
                 // Print the data at current node 
-                Console.WriteLine(currNode.data + " ");
-
+                Console.Write("Account Number : " + currNode.accountNumber + "\n" +
+                              "User Name      : " + currNode.name + "\n" +
+                              "Mobile Number  : " + currNode.mobileNumber + "\n" +
+                              "Account Balance: " + currNode.balance + "\n\n");
+                
                 // Go to next node 
                 currNode = currNode.next;
             }
